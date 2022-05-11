@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LIVisitor</string>
+    <string name="linkedin_logo">Logo de LinkedIn</string>
+    <string name="label_username">Nombre de Usuario</string>
+    <string name="label_password">Contraseña</string>
+    <string name="button_login">Ingresar</string>
+    <string name="login_result_ok">Credentials OK</string>
+    <string name="login_result_ko">Credentials wrong</string>
+</resources>

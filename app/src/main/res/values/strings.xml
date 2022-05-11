@@ -4,4 +4,6 @@
     <string name="label_username">User name</string>
     <string name="label_password">Password</string>
     <string name="button_login">Log In</string>
+    <string name="login_result_ok">Credentials OK</string>
+    <string name="login_result_ko">Credentials wrong</string>
 </resources>
