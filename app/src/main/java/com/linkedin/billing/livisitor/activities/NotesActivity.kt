@@ -23,7 +23,7 @@ class NotesActivity : AppCompatActivity() {
         // Notes persistence
         NotesProvider.loadFromPreferences(this)
         NotesProvider.onDataSetChanged {
-           // NotesProvider.saveToPreferences(this)
+            NotesProvider.saveToPreferences(this)
         }
 
         // Setup the Recyclerview

@@ -10,12 +10,17 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.core.content.edit
 import com.linkedin.billing.livisitor.R
+import com.linkedin.billing.livisitor.data.NotesProvider
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+//        NotesProvider.onDataSetChanged {
+//            val count = NotesProvider.getNotes().size
+//            findViewById<Button>(R.id.btnNotes).text = "Notes ($count)"
+//        }
 
         findViewById<Button>(R.id.btnNotes).setOnClickListener {
             val intent = Intent(this, NotesActivity::class.java)

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.content.edit
 import com.linkedin.billing.livisitor.data.API
 import com.linkedin.billing.livisitor.R
+import com.linkedin.billing.livisitor.data.NotesProvider
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
             // the user is logged in
             goHome()
         }
+
 
         setContentView(R.layout.activity_login)
 

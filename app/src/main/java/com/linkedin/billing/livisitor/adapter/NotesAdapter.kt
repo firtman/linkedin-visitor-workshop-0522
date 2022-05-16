@@ -13,8 +13,9 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     var selectedListener: (Int)->Unit = { }
 
     init {
+        // I'm subscribing to data changes
         NotesProvider.onDataSetChanged {
-            this.notifyDataSetChanged() // superclass
+            notifyDataSetChanged() // superclass - Android SDK API
         }
     }
 
