@@ -30,7 +30,14 @@ class NotesActivity : AppCompatActivity() {
         val recycler = binding.content.recyclerNotes
         recycler.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.VERTICAL, false)
-        recycler.adapter = NotesAdapter()
+        val adapter = NotesAdapter()
+        recycler.adapter = adapter
+        adapter.onSelectListener { index ->
+            println("You clicked on $index")
+            val detailsIntent = Intent(this, NoteDetailsActivity::class.java)
+            detailsIntent.putExtra(NoteDetailsActivity.ARGUMENT_INDEX, index)
+            startActivity(detailsIntent)
+        }
 
         // FAButton for creating a new note
         binding.fabAddNote.setOnClickListener {

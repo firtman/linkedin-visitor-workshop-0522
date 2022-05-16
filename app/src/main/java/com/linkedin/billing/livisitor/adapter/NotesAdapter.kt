@@ -10,6 +10,8 @@ import com.linkedin.billing.livisitor.data.NotesProvider
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
+    var selectedListener: (Int)->Unit = { }
+
     init {
         NotesProvider.onDataSetChanged {
             this.notifyDataSetChanged() // superclass
@@ -27,7 +29,14 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
 //    executed by the RecyclerView when it needs to "fill data in" a view holder
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
+        holder.itemView.setOnClickListener { 
+            selectedListener(position)
+        }
         holder.bind(NotesProvider.getNotes()[position])
+    }
+
+    fun onSelectListener(listener: (Int) -> Unit) {
+        selectedListener = listener
     }
 
     class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
