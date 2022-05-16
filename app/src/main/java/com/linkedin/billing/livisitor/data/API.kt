@@ -1,4 +1,4 @@
-package com.linkedin.billing.livisitor
+package com.linkedin.billing.livisitor.data
 
 class API {
     companion object {

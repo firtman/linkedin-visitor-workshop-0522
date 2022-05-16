@@ -1,4 +1,4 @@
-package com.linkedin.billing.livisitor
+package com.linkedin.billing.livisitor.activities
 
 import android.content.Context
 import android.content.Intent
@@ -9,12 +9,18 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import androidx.core.content.edit
+import com.linkedin.billing.livisitor.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+
+        findViewById<Button>(R.id.btnNotes).setOnClickListener {
+            val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -24,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId==R.id.action_logout) {
+        if (item.itemId== R.id.action_logout) {
             logout()
         }
         return super.onOptionsItemSelected(item)

@@ -6,5 +6,5 @@
     <string name="button_login">Log In</string>
     <string name="login_result_ok">Credentials OK</string>
     <string name="login_result_ko">Credentials wrong</string>
-    <string name="button_notes_section">Notes</string>
+    <string name="title_activity_notes">Notes</string>
 </resources>

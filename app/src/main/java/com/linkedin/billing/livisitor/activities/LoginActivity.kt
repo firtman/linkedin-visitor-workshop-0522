@@ -1,14 +1,15 @@
-package com.linkedin.billing.livisitor
+package com.linkedin.billing.livisitor.activities
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.edit
+import com.linkedin.billing.livisitor.data.API
+import com.linkedin.billing.livisitor.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,15 +41,17 @@ class LoginActivity : AppCompatActivity() {
             API.login(username, password) { ok ->
                 val message = "Message: ${getString(R.string.login_result_ko)}"
 
-                Toast.makeText(this,
+                Toast.makeText(
+                    this,
                     if (ok) R.string.login_result_ok else R.string.login_result_ko,
-                    Toast.LENGTH_LONG).show()
+                    Toast.LENGTH_LONG
+                ).show()
 
                 if (ok) {
                     goHome()
 
                     // Save a flag, we are logged in
-                    val prefs = getSharedPreferences(PREFS_LOGIN, Context.MODE_PRIVATE)
+                    val prefs = getSharedPreferences(PREFS_LOGIN, MODE_PRIVATE)
                     prefs.edit {
                         putBoolean(KEY_LOGIN, true)
                     }

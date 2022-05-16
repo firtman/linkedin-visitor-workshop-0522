@@ -7,4 +7,5 @@
     <string name="button_login">Ingresar</string>
     <string name="login_result_ok">Credentials OK</string>
     <string name="login_result_ko">Credentials wrong</string>
+    <string name="title_activity_notes">Notas</string>
 </resources>
