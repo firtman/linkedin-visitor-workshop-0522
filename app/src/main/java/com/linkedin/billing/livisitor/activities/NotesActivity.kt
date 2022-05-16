@@ -1,10 +1,12 @@
 package com.linkedin.billing.livisitor.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.linkedin.billing.livisitor.adapter.NotesAdapter
 import com.linkedin.billing.livisitor.data.NotesProvider
+import com.linkedin.billing.livisitor.databinding.ActivityNoteAddBinding
 import com.linkedin.billing.livisitor.databinding.ActivityNotesBinding
 
 class NotesActivity : AppCompatActivity() {
@@ -18,8 +20,13 @@ class NotesActivity : AppCompatActivity() {
         binding = ActivityNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Notes persistence
+        NotesProvider.loadFromPreferences(this)
+        NotesProvider.onDataSetChanged {
+           // NotesProvider.saveToPreferences(this)
+        }
+
         // Setup the Recyclerview
-//        val recycler = findViewById<RecyclerView>(R.id.recyclerNotes)
         val recycler = binding.content.recyclerNotes
         recycler.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.VERTICAL, false)
@@ -27,10 +34,18 @@ class NotesActivity : AppCompatActivity() {
 
         // FAButton for creating a new note
         binding.fabAddNote.setOnClickListener {
-            NotesProvider.addNote("NEW NOTE")
+            startActivity(
+                Intent(this, NoteAddActivity::class.java)
+            )
         }
         // Replaces the Android Action bar with the new Material Toolbar
         setSupportActionBar(binding.toolbar)
+    }
+
+    override fun onPause() {
+        NotesProvider.saveToPreferences(this)
+
+        super.onPause()
     }
 
 }

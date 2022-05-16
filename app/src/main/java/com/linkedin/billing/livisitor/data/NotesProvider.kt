@@ -1,12 +1,24 @@
 package com.linkedin.billing.livisitor.data
 
+import android.content.Context
+import androidx.core.content.edit
+
 object NotesProvider {
-    private val notes = mutableListOf<String>()
+    private var notes = mutableListOf<String>()
     private val subscribers = mutableListOf<()->Unit>()
 
-    init {
-        for (i in 0..3) {
-            notes.add("Note $i")
+    fun loadFromPreferences(context: Context) {
+        val prefs = context.getSharedPreferences("notes", Context.MODE_PRIVATE)
+        val savedNotes = prefs.getStringSet("notes", null) ?: setOf()
+        notes = savedNotes.toMutableList()
+
+        notifySubscribers()
+    }
+
+    fun saveToPreferences(context: Context) {
+        val prefs = context.getSharedPreferences("notes", Context.MODE_PRIVATE)
+        prefs.edit {
+            putStringSet("notes", notes.toSet())
         }
     }
 
