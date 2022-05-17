@@ -27,5 +27,7 @@ class VisitorActivity : AppCompatActivity() {
                 binding.txtTemperature.text = "Error :("
             }
         }
+
+
     }
 }

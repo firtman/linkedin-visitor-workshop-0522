@@ -35,6 +35,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, VisitorActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.btnLocation).setOnClickListener {
+            val intent = Intent(this, LocationActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
