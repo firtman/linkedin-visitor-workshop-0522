@@ -4,6 +4,9 @@
     package="com.linkedin.billing.livisitor">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LIVisitor"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.LocationActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receivers.DemoReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.DemoService"
+            android:exported="false" />
+
         <activity
             android:name=".activities.VisitorActivity"
             android:exported="false" />

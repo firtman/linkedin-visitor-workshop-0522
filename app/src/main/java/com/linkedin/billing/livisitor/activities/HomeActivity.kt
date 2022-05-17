@@ -16,11 +16,15 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.linkedin.billing.livisitor.R
 import com.linkedin.billing.livisitor.data.NotesProvider
+import com.linkedin.billing.livisitor.services.DemoService
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        // Start a service: DEMO
+        startService(Intent(this, DemoService::class.java))
 
         findViewById<Button>(R.id.btnNotes).setOnClickListener {
             val intent = Intent(this, NotesActivity::class.java)
