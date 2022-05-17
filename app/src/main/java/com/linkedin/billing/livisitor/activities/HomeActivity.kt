@@ -9,6 +9,11 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import androidx.core.content.edit
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.linkedin.billing.livisitor.R
 import com.linkedin.billing.livisitor.data.NotesProvider
 
@@ -17,13 +22,13 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-//        NotesProvider.onDataSetChanged {
-//            val count = NotesProvider.getNotes().size
-//            findViewById<Button>(R.id.btnNotes).text = "Notes ($count)"
-//        }
-
         findViewById<Button>(R.id.btnNotes).setOnClickListener {
             val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.btnVisitor).setOnClickListener {
+            val intent = Intent(this, VisitorActivity::class.java)
             startActivity(intent)
         }
     }

@@ -4,25 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.HomeActivity">
+    tools:context=".activities.VisitorActivity">
 
-    <Button
-        android:id="@+id/btnNotes"
+    <TextView
+        android:id="@+id/txtTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/title_activity_notes"
+        android:text="TextView"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnVisitor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Visitor"
-        app:layout_constraintStart_toStartOf="@+id/btnNotes"
-        app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
