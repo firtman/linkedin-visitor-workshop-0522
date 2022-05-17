@@ -1,0 +1,16 @@
+<!doctype html>
+
+<style>
+    h1 { color: red }
+</style>
+<h1>I'm an HTML in a file</h1>
+
+<script>
+    function click() {
+        kotlin.showToast()
+        document.getElementById("output").innerHTML = "Ouch!"
+    }
+</script>
+
+<div onclick="click()" type="button">Click me</div>
+<output id="output"></output>

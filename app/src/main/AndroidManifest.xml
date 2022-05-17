@@ -5,8 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LIVisitor"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.InfoActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.LocationActivity"
             android:exported="false" />
